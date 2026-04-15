@@ -11,6 +11,9 @@ export default defineConfig({
   site: 'https://caomaolufei.github.io',
   base: '/AIInfraGuide',
   integrations: [tailwind(), sitemap()],
+  experimental: {
+    contentLayer: true,
+  },
   markdown: {
     shikiConfig: {
       themes: {

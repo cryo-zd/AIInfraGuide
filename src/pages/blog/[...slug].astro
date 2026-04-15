@@ -1,11 +1,11 @@
 ---
-import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
+import { type CollectionEntry, getCollection, getEntry, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: post,
   }));
 }
@@ -20,23 +20,22 @@ let headings: any[] = [];
 if (post.data.ref) {
   const guide = await getEntry('guides', post.data.ref);
   if (guide) {
-    const rendered = await guide.render();
+    const rendered = await render(guide);
     Content = rendered.Content;
     headings = rendered.headings;
   } else {
-    // ref 指向的 guide 不存在，回退到自身内容
-    const rendered = await post.render();
+    const rendered = await render(post);
     Content = rendered.Content;
   }
 } else {
-  const rendered = await post.render();
+  const rendered = await render(post);
   Content = rendered.Content;
 }
 
 // Get prev/next posts by pubDate
 const allPosts = await getCollection('posts', ({ data }) => !data.draft);
 const sorted = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const currentIndex = sorted.findIndex((p) => p.slug === post.slug);
+const currentIndex = sorted.findIndex((p) => p.id === post.id);
 const prevPost = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null;
 const nextPost = currentIndex > 0 ? sorted[currentIndex - 1] : null;
 
@@ -105,7 +104,7 @@ const getPath = (path: string) => {
     <nav class="mt-16 pt-8 border-t border-gray-200 dark:border-white/[0.06] grid grid-cols-2 gap-4">
       {prevPost ? (
         <a
-          href={getPath(`/blog/${prevPost.slug}`)}
+          href={getPath(`/blog/${prevPost.id}`)}
           class="group p-5 rounded-xl border border-gray-200 dark:border-white/[0.06] hover:border-gray-300 dark:hover:border-white/[0.12] hover:shadow-lg transition-all duration-300 cursor-pointer"
         >
           <span class="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-2">
@@ -121,7 +120,7 @@ const getPath = (path: string) => {
       ) : <div />}
       {nextPost ? (
         <a
-          href={getPath(`/blog/${nextPost.slug}`)}
+          href={getPath(`/blog/${nextPost.id}`)}
           class="group p-5 rounded-xl border border-gray-200 dark:border-white/[0.06] hover:border-gray-300 dark:hover:border-white/[0.12] hover:shadow-lg transition-all duration-300 text-right cursor-pointer"
         >
           <span class="flex items-center justify-end gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-2">

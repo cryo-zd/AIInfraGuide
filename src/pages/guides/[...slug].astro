@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { type CollectionEntry, getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import GuideSidebar from '../../components/GuideSidebar.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
@@ -8,7 +8,7 @@ import { GUIDE_CATEGORIES } from '../../utils/categories';
 export async function getStaticPaths() {
   const guides = await getCollection('guides', ({ data }) => !data.draft);
   return guides.map((guide) => ({
-    params: { slug: guide.slug },
+    params: { slug: guide.id },
     props: guide,
   }));
 }
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'guides'>;
 
 const guide = Astro.props;
-const { Content, headings } = await guide.render();
+const { Content, headings } = await render(guide);
 
 const categoryMeta = GUIDE_CATEGORIES[guide.data.category];
 
@@ -26,7 +26,7 @@ const sameCategory = allGuides
   .filter((g) => g.data.category === guide.data.category)
   .sort((a, b) => a.data.order - b.data.order);
 
-const currentIndex = sameCategory.findIndex((g) => g.slug === guide.slug);
+const currentIndex = sameCategory.findIndex((g) => g.id === guide.id);
 const prevGuide = currentIndex > 0 ? sameCategory[currentIndex - 1] : null;
 const nextGuide = currentIndex < sameCategory.length - 1 ? sameCategory[currentIndex + 1] : null;
 
@@ -106,7 +106,7 @@ const getPath = (path: string) => {
       <nav class="mt-16 pt-8 border-t border-gray-200 dark:border-white/[0.06] grid grid-cols-2 gap-4">
         {prevGuide ? (
           <a
-            href={getPath(`/guides/${prevGuide.slug}`)}
+            href={getPath(`/guides/${prevGuide.id}`)}
             class="group p-5 rounded-xl border border-gray-200 dark:border-white/[0.06] hover:border-gray-300 dark:hover:border-white/[0.12] hover:shadow-lg transition-all duration-300 cursor-pointer"
           >
             <span class="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-2">
@@ -122,7 +122,7 @@ const getPath = (path: string) => {
         ) : <div />}
         {nextGuide ? (
           <a
-            href={getPath(`/guides/${nextGuide.slug}`)}
+            href={getPath(`/guides/${nextGuide.id}`)}
             class="group p-5 rounded-xl border border-gray-200 dark:border-white/[0.06] hover:border-gray-300 dark:hover:border-white/[0.12] hover:shadow-lg transition-all duration-300 text-right cursor-pointer"
           >
             <span class="flex items-center justify-end gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-2">

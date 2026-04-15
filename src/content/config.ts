@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const guides = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './docs/guides' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -22,7 +23,7 @@ const guides = defineCollection({
 });
 
 const posts = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './docs/posts' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -31,7 +32,7 @@ const posts = defineCollection({
     heroImage: z.string().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
-    ref: z.string().optional(), // 指向 guides 集合的 slug，实现内容复用
+    ref: z.string().optional(),
   }),
 });
 

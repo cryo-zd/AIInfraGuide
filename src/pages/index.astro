@@ -64,7 +64,7 @@ const getPath = (path: string) => {
       </h1>
 
       <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-3 font-medium">
-        从零开始深入理解 AI Infra 的核心技术
+        从零开始深入理解 AI Infra 的核心技术（持续更新中）
       </p>
       <p class="text-sm text-gray-500 dark:text-gray-500 mb-10 max-w-xl mx-auto leading-relaxed">
         从 CUDA 编程到分布式训练，从推理优化到性能分析，构建完整的 AI Infra 知识体系
@@ -73,7 +73,7 @@ const getPath = (path: string) => {
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         {categoryCounts.find((c) => c.firstGuide) && (
           <a
-            href={getPath(`/guides/${categoryCounts.find((c) => c.firstGuide)!.firstGuide!.slug}`)}
+            href={getPath(`/guides/${categoryCounts.find((c) => c.firstGuide)!.firstGuide!.id}`)}
             class="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-300 shadow-lg shadow-gray-900/10 dark:shadow-white/10 cursor-pointer"
           >
             开始学习
@@ -109,7 +109,7 @@ const getPath = (path: string) => {
             icon={cat.icon}
             title={cat.label}
             description={categoryDescriptions[cat.slug] || `${cat.label}相关的技术文档`}
-            href={cat.firstGuide ? getPath(`/guides/${cat.firstGuide.slug}`) : '#'}
+            href={cat.firstGuide ? getPath(`/guides/${cat.firstGuide.id}`) : '#'}
             count={cat.count}
             slug={cat.slug}
           />
@@ -141,7 +141,7 @@ const getPath = (path: string) => {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {posts.map((post) => (
             <a
-              href={getPath(`/blog/${post.slug}`)}
+              href={getPath(`/blog/${post.id}`)}
               class="group block p-6 bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] rounded-2xl hover:border-gray-300 dark:hover:border-white/[0.12] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer"
             >
               <div class="flex gap-2 mb-3 flex-wrap">
