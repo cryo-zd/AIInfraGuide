@@ -15,8 +15,8 @@ interface Props {
 }
 
 const {
-  title = 'AIInfraGuide - AI 基础设施知识库',
-  description = '深入理解 AI 基础设施的核心技术：GPU、训练框架、推理服务、分布式系统',
+  title = 'AIInfraGuide - AI Infra全栈知识库',
+  description = '深入理解 AI Infra 的核心全栈技术：CUDA算子优化、分布式训练、推理优化、性能分析',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -32,6 +32,7 @@ const isActive = (prefix: string) => {
   if (prefix === '/guides') return currentPath.startsWith('/guides') || currentPath.startsWith(getPath('/guides'));
   if (prefix === '/blog') return currentPath.startsWith('/blog') || currentPath.startsWith(getPath('/blog'));
   if (prefix === '/interview') return currentPath.startsWith('/interview') || currentPath.startsWith(getPath('/interview'));
+  if (prefix === '/about') return currentPath.startsWith('/about') || currentPath.startsWith(getPath('/about'));
   return false;
 };
 
@@ -126,6 +127,14 @@ const mobileNavLinkClass = (prefix: string) =>
             </li>
             <li>
               <a
+                href={getPath('/about')}
+                class={navLinkClass('/about')}
+              >
+                关于
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://github.com/caomaolufei/AIInfraGuide"
                 target="_blank"
                 class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 flex items-center gap-1"
@@ -192,6 +201,7 @@ const mobileNavLinkClass = (prefix: string) =>
             <a href={getPath('/guides/gpu-basics')} class={mobileNavLinkClass('/guides')}>知识库</a>
             <a href={getPath('/blog')} class={mobileNavLinkClass('/blog')}>博客</a>
             <a href={getPath('/interview')} class={mobileNavLinkClass('/interview')}>面试宝典</a>
+            <a href={getPath('/about')} class={mobileNavLinkClass('/about')}>关于</a>
             <a href="https://github.com/caomaolufei/AIInfraGuide" target="_blank" class="mobile-nav-link py-3 px-4 rounded-lg text-gray-700 dark:text-gray-300 hover:text-[#007aff] hover:bg-gray-50 dark:hover:bg-white/5 transition-all font-medium">GitHub</a>
           </nav>
         </div>

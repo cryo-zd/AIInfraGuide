@@ -1,6 +1,6 @@
 ---
 title: "欢迎来到 AIInfraGuide"
-description: "AIInfraGuide 正式上线，一个开源、系统、面向实践的 AI 基础设施知识库"
+description: "AIInfraGuide 正式上线，一个开源、系统、面向实践的 AI Infra 知识库"
 pubDate: 2026-01-10
 tags: ["公告", "AI Infra"]
 ---
@@ -16,7 +16,7 @@ tags: ["公告", "AI Infra"]
 - 推理优化技术（PagedAttention、量化、Speculative Decoding）发展迅猛，难以跟上节奏
 - 性能分析工具（Nsight Systems、Nsight Compute）功能强大，但上手门槛不低
 
-AIInfraGuide 正是为了解决这些问题而创建的——一个**开源、系统、面向实践**的 AI 基础设施知识库，帮助工程师构建从硬件到软件、从训练到推理的完整知识体系。
+AIInfraGuide 正是为了解决这些问题而创建的——一个**开源、系统、面向实践**的 AI Infra 知识库，帮助工程师构建从硬件到软件、从训练到推理的完整知识体系。
 
 ## 📖 知识库内容体系
 

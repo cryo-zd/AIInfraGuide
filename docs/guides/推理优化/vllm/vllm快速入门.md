@@ -191,7 +191,7 @@ sampling_params = SamplingParams(temperature=0.7, max_tokens=512)
 
 messages_list = [
     [
-        {"role": "system", "content": "你是一个 AI 基础设施专家。"},
+        {"role": "system", "content": "你是一个 AI Infra 专家。"},
         {"role": "user", "content": "解释什么是张量并行？"},
     ],
     [
