@@ -4,8 +4,11 @@ import Layout from '../../layouts/Layout.astro';
 import GuideContent from '../../components/GuideContent.astro';
 import { flattenChapterOrder } from '../../utils/chapterGrouping';
 
+const CATEGORY = 'prerequisites' as const;
+const URL_PREFIX = '/prerequisites';
+
 export async function getStaticPaths() {
-  const guides = await getCollection('guides', ({ data }) => !data.draft && data.category !== 'course');
+  const guides = await getCollection('guides', ({ data }) => !data.draft && data.category === 'prerequisites');
   return guides.map((guide) => ({
     params: { slug: guide.id },
     props: guide,
@@ -18,7 +21,7 @@ const guide = Astro.props;
 
 const allGuides = await getCollection('guides', ({ data }) => !data.draft);
 const sameCategory = flattenChapterOrder(
-  allGuides.filter((g) => g.data.category === guide.data.category)
+  allGuides.filter((g) => g.data.category === CATEGORY)
 );
 ---
 
@@ -26,6 +29,7 @@ const sameCategory = flattenChapterOrder(
   <GuideContent
     guide={guide}
     sameCategory={sameCategory}
-    urlPrefix="/guides"
+    sidebarCategories={[CATEGORY]}
+    urlPrefix={URL_PREFIX}
   />
 </Layout>

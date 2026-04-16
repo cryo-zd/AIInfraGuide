@@ -45,7 +45,7 @@ const getPath = (path: string) => {
     </div>
 
     <!-- Navigation -->
-    <div class="mt-16 pt-8 border-t border-gray-200 dark:border-white/[0.06] flex justify-start">
+    <div class="mt-16 pt-8 border-t border-gray-200 dark:border-white/[0.06] flex justify-between">
       <a
         href={getPath('/about/welcome')}
         class="group flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-[#007aff] dark:hover:text-[#0a84ff] transition-colors"
@@ -54,6 +54,15 @@ const getPath = (path: string) => {
           <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
         </svg>
         欢迎来到 AIInfraGuide
+      </a>
+      <a
+        href={getPath('/about/roadmap')}
+        class="group flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-[#007aff] dark:hover:text-[#0a84ff] transition-colors"
+      >
+        教程更新计划
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
       </a>
     </div>
   </article>

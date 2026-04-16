@@ -3,7 +3,8 @@ title: "NVIDIA GPU 架构演进：从 Volta 到 Blackwell"
 description: "系统梳理 NVIDIA 五代 AI GPU 架构（Volta → Turing → Ampere → Hopper → Blackwell）的关键技术演进，理解每一代为 AI 训练和推理带来了什么"
 pubDate: 2026-04-15
 category: "prerequisites"
-order: 2
+order: 503
+chapter: 5
 tags: ["GPU", "NVIDIA", "Tensor Core", "架构演进", "AI硬件"]
 ---
 

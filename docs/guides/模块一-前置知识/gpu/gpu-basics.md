@@ -3,7 +3,8 @@ title: "GPU 基础知识：从硬件架构到 AI 计算"
 description: "系统理解 GPU 硬件架构、CUDA 编程模型、显存层次和计算单元，为深入学习 AI Infra打下坚实基础"
 pubDate: 2026-04-15
 category: "prerequisites"
-order: 1
+order: 502
+chapter: 5
 tags: ["GPU", "CUDA", "硬件架构", "AI计算", "显存"]
 ---
 

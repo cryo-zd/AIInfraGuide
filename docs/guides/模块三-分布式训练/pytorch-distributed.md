@@ -1,9 +1,9 @@
 ---
-title: "PyTorch 分布式训练：从原理到实战"
+title: "✅ PyTorch 分布式训练：从原理到实战 🔥"
 description: "系统掌握 PyTorch 分布式训练全栈知识：通信原语、DDP 数据并行、FSDP 参数分片和多机多卡实战，附完整代码示例"
 pubDate: 2026-04-15
 category: "distributed-training"
-order: 1
+order: 0
 tags: ["PyTorch", "分布式训练", "DDP", "FSDP", "数据并行"]
 ---
 

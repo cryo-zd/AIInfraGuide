@@ -1,5 +1,5 @@
 ---
-title: "CUDA编程入门指南"
+title: "✅ CUDA编程快速入门指南 🔥"
 description: "全面介绍 CUDA 编程模型、内存模型及常见算子优化技术，帮助你高效实现和优化 AI 算法"
 pubDate: 2026-04-15
 category: "cuda-optimization"
