@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import { GUIDE_CATEGORIES, type CategorySlug } from '../utils/categories';
 
 const guides = await getCollection('guides', ({ data }) => !data.draft);
-const currentPath = Astro.url.pathname;
+const currentPath = decodeURIComponent(Astro.url.pathname);
 
 const gradientMap: Record<string, string> = {
   'learning-path': '#3B82F6',
@@ -30,12 +30,19 @@ const getGuidePath = (guideId: string) => {
   const path = `/guides/${guideId}`;
   return base === '/' ? path : `${base.replace(/\/$/, '')}${path}`;
 };
+
+const isActivePath = (guideId: string) => {
+  const guidePath = getGuidePath(guideId);
+  const normalizedCurrent = currentPath.replace(/\/$/, '');
+  const normalizedGuide = guidePath.replace(/\/$/, '');
+  return normalizedCurrent === normalizedGuide;
+};
 ---
 
 <nav class="w-64 shrink-0 sticky top-24 h-[calc(100vh-8rem)] overflow-y-auto sidebar-scroll pr-2">
   <div class="space-y-6">
     {grouped.map((group) => {
-      const hasActive = group.items.some((item) => currentPath.includes(item.id));
+      const hasActive = group.items.some((item) => isActivePath(item.id));
       return (
         <div>
           <!-- Category header -->
@@ -53,7 +60,7 @@ const getGuidePath = (guideId: string) => {
           <ul class="relative ml-[11px] border-l border-gray-200 dark:border-white/[0.06] space-y-px">
             {group.items.map((item) => {
               const href = getGuidePath(item.id);
-              const isActive = currentPath.includes(item.id);
+              const isActive = isActivePath(item.id);
               return (
                 <li class="relative">
                   {isActive && (
@@ -61,6 +68,7 @@ const getGuidePath = (guideId: string) => {
                   )}
                   <a
                     href={href}
+                    data-active={isActive ? 'true' : undefined}
                     class:list={[
                       'block ml-4 px-3 py-1.5 rounded-lg text-[13px] leading-snug transition-all duration-200 cursor-pointer',
                       isActive
@@ -79,3 +87,16 @@ const getGuidePath = (guideId: string) => {
     })}
   </div>
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.querySelector('.sidebar-scroll') as HTMLElement | null;
+    const activeLink = sidebar?.querySelector('a[data-active="true"]') as HTMLElement | null;
+    if (sidebar && activeLink) {
+      const sidebarRect = sidebar.getBoundingClientRect();
+      const linkRect = activeLink.getBoundingClientRect();
+      const offset = linkRect.top - sidebarRect.top - sidebarRect.height / 2 + linkRect.height / 2;
+      sidebar.scrollTop += offset;
+    }
+  });
+</script>

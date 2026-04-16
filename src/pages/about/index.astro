@@ -1,47 +1,52 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getEntry, render } from 'astro:content';
 
-const post = await getEntry('posts', 'hello-world');
-const { Content } = await render(post!);
+const getPath = (path: string) => {
+  const base = import.meta.env.BASE_URL;
+  return base === '/' ? path : `${base.replace(/\/$/, '')}${path}`;
+};
+
+const pages = [
+  {
+    title: '欢迎来到 AIInfraGuide',
+    description: '了解项目愿景、内容体系和参与方式',
+    href: getPath('/about/welcome'),
+    icon: '🚀',
+  },
+  {
+    title: '草帽路飞介绍',
+    description: '关于作者、技术背景和联系方式',
+    href: getPath('/about/author'),
+    icon: '👋',
+  },
+];
 ---
 
-<Layout title="关于 - AIInfraGuide" description="关于 AIInfraGuide 项目">
-  <article class="py-24 max-w-3xl mx-auto px-6">
+<Layout title="关于 - AIInfraGuide" description="关于 AIInfraGuide 项目和作者">
+  <div class="py-24 max-w-3xl mx-auto px-6">
     <div class="mb-12 text-center">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
-        {post!.data.title}
-      </h1>
-      <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto border-l-4 border-[#007aff] pl-6 italic text-left">
-        {post!.data.description}
-      </p>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">关于</h1>
+      <p class="text-lg text-gray-500 dark:text-gray-400">了解 AIInfraGuide 和背后的作者</p>
     </div>
 
-    <div
-      class="prose prose-gray dark:prose-invert prose-lg max-w-none
-        prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white
-        prose-h2:text-2xl prose-h2:mt-12 prose-h2:border-b prose-h2:border-gray-200 dark:prose-h2:border-white/10 prose-h2:pb-2
-        prose-h3:text-xl
-        prose-a:text-[#007aff] dark:prose-a:text-[#0a84ff] prose-a:no-underline hover:prose-a:underline
-        prose-hr:border-gray-200 dark:prose-hr:border-white/10
-        prose-code:text-[#007aff] dark:prose-code:text-[#0a84ff] prose-code:bg-blue-50 dark:prose-code:bg-blue-900/20 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
-        prose-img:rounded-xl prose-img:border prose-img:border-gray-200 dark:prose-img:border-white/10 prose-img:shadow-sm
-        prose-pre:bg-[#1e1e1e] prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-white/10 prose-pre:shadow-sm prose-pre:rounded-lg"
-    >
-      <Content />
-
-
-      <h2>👋 关于我</h2>
-      <p>你好！我是 <strong>草帽路飞</strong>，一名专注于 AI Infra 方向的技术开发者，热衷于 GPU 编程、深度学习系统优化以及大模型训练与推理。</p>
-      <p>本人硕士是传统高性能计算 HPC 方向，主要做 CPU 和 GPU 的数值模式的优化，比较擅长算子优化。硕士期间 3 段高性能计算实习经历，校招进入某大厂做 AI Infra 开发。自己以前对大模型相关知识并没有系统性学过，所以在日常工作中经常遇到很多大模型训练和推理层的新概念，都是现学现卖。虽然工作的活都顺利干完了，但是知识点学的比较零散，没有一个全局的知识视角。</p>
-      <p>我觉得还是很有必要系统性地学习一下 AI Infra 相关知识，争取成为一个 AI Infra 全栈工程师。后续我将持续更新分享自己的学习笔记和相关教程。有对 AI Infra 感兴趣以及想学习的朋友，可以关注我，和我一起进步成长～</p>
-
-      <h2>📫 联系方式</h2>
-      <p>欢迎通过以下方式与我交流：</p>
-      <ul>
-        <li>公众号: <a href="https://mp.weixin.qq.com/s/oxUBDTd-b1aZnh0jGR5tqw" target="_blank" rel="noopener noreferrer">《AI炼金炉》</a>(有vx)</li>
-        <li>知乎: <a href="https://zhihu.com/people/zi-you-zi-zai-de-zhan-sheng" target="_blank" rel="noopener noreferrer">草帽路飞</a></li>
-      </ul>
+    <div class="grid gap-4">
+      {pages.map((page) => (
+        <a
+          href={page.href}
+          class="group flex items-start gap-5 p-6 rounded-xl border border-gray-200 dark:border-white/[0.06] hover:border-gray-300 dark:hover:border-white/[0.12] hover:shadow-lg transition-all duration-300 cursor-pointer"
+        >
+          <span class="text-3xl shrink-0 mt-0.5">{page.icon}</span>
+          <div>
+            <h2 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-[#007aff] dark:group-hover:text-[#0a84ff] transition-colors duration-200">
+              {page.title}
+            </h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{page.description}</p>
+          </div>
+          <svg class="w-5 h-5 text-gray-300 dark:text-gray-600 group-hover:text-[#007aff] dark:group-hover:text-[#0a84ff] ml-auto mt-1.5 shrink-0 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </a>
+      ))}
     </div>
-  </article>
+  </div>
 </Layout>
