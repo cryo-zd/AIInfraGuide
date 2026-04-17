@@ -19,6 +19,6 @@ tags: ["关于", "作者"]
 
 - 公众号: [《AI炼金炉》](https://mp.weixin.qq.com/s/oxUBDTd-b1aZnh0jGR5tqw)
 - 知乎: [草帽路飞](https://zhihu.com/people/zi-you-zi-zai-de-zhan-sheng)
-- vx群: 
-<img src="https://caomaolufei.github.io/AIInfraGuide/images/wx_qun.png" alt="wx_qun" style="max-width: 100%; display: block; margin: 0 auto;" />
+- 社群: （vx： caomaolufei2026）
+<img src="https://caomaolufei.github.io/AIInfraGuide/images/wx_qun.png" alt="wx_qun" style="max-width: 50%; display: block; margin: 0 auto;" />
 
