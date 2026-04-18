@@ -147,6 +147,11 @@ html.dark .astro-code span {
   width: 100%;
 }
 
+/* Hide the trailing empty line that Shiki generates */
+.prose pre.astro-code .line:last-child:empty {
+  display: none;
+}
+
 .prose pre.astro-code .line::before {
   counter-increment: line;
   content: counter(line);
