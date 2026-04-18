@@ -21,7 +21,8 @@ tags: ["公告", "更新日志"]
 
 ### 新增内容
 
-- **[面试专区](/AIInfraGuide/interview)**：新增大厂真实面试题模块，收录多家头部公司 AI Infra 方向面试真题
+- **面试专区**：共收录 **180+ 场面试真题**，覆盖 **40+ 家公司**，按梯队分类组织。[在线浏览 →](https://caomaolufei.github.io/AIInfraGuide/interview)
+- 涵盖公司包括字节跳动、阿里巴巴、腾讯、百度、快手、美团、蚂蚁、英伟达、MiniMax、蔚来、小鹏、理想等。
 - **社区入口**：新增[wx交流群]((/AIInfraGuide/about/author))，欢迎大家加入讨论
 
 ### 内容优化
