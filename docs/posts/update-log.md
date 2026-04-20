@@ -9,6 +9,15 @@ tags: ["公告", "更新日志"]
 
 ---
 
+## 2026-04-20
+
+### 新增内容
+
+- **文章：** [3.5 Transformer前馈网络ffn深入理解](/AIInfraGuide/prerequisites/模块一-前置知识/transformer/35-transformer前馈网络ffn深入理解)
+- **文章：** [3.6 Transformer位置编码深入理解](/AIInfraGuide/prerequisites/模块一-前置知识/transformer/36-transformer位置编码深入理解)
+
+---
+
 ## 2026-04-18
 
 ### 新增内容
@@ -44,7 +53,7 @@ tags: ["公告", "更新日志"]
 ### 新增内容
 
 - **Transformer 系列文章**：
-  - [3.1 Transformer 架构入门](/AIInfraGuide/prerequisites/模块一-前置知识/transformer/31-Transformer架构入门)
+  - [3.1 Transformer 架构入门](/AIInfraGuide/prerequisites/模块一-前置知识/transformer/31-Transformer架构快速入门)
   - [3.2 AI Infra 工程师为什么必须懂 Transformer](/AIInfraGuide/prerequisites/模块一-前置知识/transformer/32-AIInfra工程师为什么必须懂Transformer)
   - [3.3 Transformer 全貌及代码实现](/AIInfraGuide/prerequisites/模块一-前置知识/transformer/33-Transformer全貌及代码实现)
 - **课程资料**：150+ 篇详细子文章上线，覆盖四大模块全部章节
