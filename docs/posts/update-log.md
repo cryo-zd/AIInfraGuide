@@ -9,6 +9,15 @@ tags: ["公告", "更新日志"]
 
 ---
 
+## 2026-04-21
+
+### 新增内容
+
+- **文章：** [3.7 LayerNorm与残差连接深入理解](/AIInfraGuide/prerequisites/模块一-前置知识/transformer/37-layernorm与残差连接深入理解)
+- **文章：** [3.8 Transformer Decoder Block完整解析](/AIInfraGuide/prerequisites/模块一-前置知识/transformer/38-transformer-decoder-block完整解析)
+
+---
+
 ## 2026-04-20
 
 ### 新增内容
