@@ -269,3 +269,18 @@ html.dark .astro-code span {
   color: #3fb950;
   border-color: rgba(63, 185, 80, 0.3);
 }
+
+/* ═══════════════════════════════════════
+   Mermaid Diagrams
+   ═══════════════════════════════════════ */
+.mermaid {
+  display: flex;
+  justify-content: center;
+  margin: 1.5em 0;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+  max-height: 360px;
+}
