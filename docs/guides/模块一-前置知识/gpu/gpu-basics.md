@@ -55,7 +55,7 @@ GPU 是大模型时代的"发动机"——训练一个千亿参数的 LLM 可能
 
 - **前向传播**：每一层都是 $Y = XW + b$，本质是矩阵乘法
 - **反向传播**：计算梯度依然是矩阵乘法（$\frac{\partial L}{\partial W} = X^\top \cdot \frac{\partial L}{\partial Y}$）
-- **Attention 计算**：$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V$，核心还是矩阵乘
+- **Attention 计算**：$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V$，核心还是矩阵乘法
 
 这些运算有两个关键特征：
 
