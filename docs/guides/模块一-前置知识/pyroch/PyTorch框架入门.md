@@ -1,5 +1,5 @@
 ---
-title: "🔥 PyTorch框架入门"
+title: "🔥 PyTorch框架快速入门篇"
 description: "PyTorch 是当前大模型训练和推理的事实标准框架"
 pubDate: 2026-04-25
 category: "prerequisites"

@@ -240,6 +240,18 @@ AIInfraGuide 是一个开源项目，欢迎通过以下方式参与共建：
 
 让我们一起构建 AI Infra 社区的知识基础设施。
 
+<div id="contribute"></div>
+
+<div align='center'>
+<a href="https://star-history.com/#caomaolufei/AIInfraGuide&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=caomaolufei/AIInfraGuide&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=caomaolufei/AIInfraGuide&type=Date" />
+   <img width=400 height=300 alt="Star History Chart" src="https://api.star-history.com/svg?repos=caomaolufei/AIInfraGuide&type=Date" />
+ </picture>
+</a>
+</div>
+
 ## 联系方式
 
 欢迎通过以下方式与我交流：

@@ -12,7 +12,7 @@ tags: ["公告", "更新日志"]
 
 ### 新增内容
 
-- **文章：** [🔥 PyTorch框架入门](/AIInfraGuide/prerequisites/模块一-前置知识/pyroch/pytorch框架入门)
+- **文章：** [🔥 PyTorch框架快速入门篇](/AIInfraGuide/prerequisites/模块一-前置知识/pyroch/pytorch框架入门)
 
 ---
 ## 2026-04-24
