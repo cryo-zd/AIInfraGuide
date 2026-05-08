@@ -8,6 +8,14 @@ tags: ["公告", "更新日志"]
 本文持续记录 AIInfraGuide 知识库的内容更新，按时间倒序排列，方便大家了解最新动态。
 
 ---
+## 2026-05-08
+
+### 新增内容
+
+- **文章：** [1.1 CUDA 开发环境搭建](https://caomaolufei.github.io/AIInfraGuide/cuda/模块二-cuda编程与算子优化/11-cuda开发环境搭建)
+- **文章：** [1.2 CUDA 编程模型](https://caomaolufei.github.io/AIInfraGuide/cuda/模块二-cuda编程与算子优化/12-cuda编程模型)
+
+---
 ## 2026-05-07
 
 ### 新增内容
