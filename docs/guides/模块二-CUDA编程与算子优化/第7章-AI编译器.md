@@ -15,4 +15,4 @@ tags: ["Triton", "torch.compile", "AI编译器", "TorchInductor", "TVM"]
 
 **torch.compile**是 PyTorch 2.x 的编译模式，包含 TorchDynamo（Python 字节码级图捕获）和 TorchInductor（后端代码生成）。重点分析 Graph Break 问题（什么情况打断编译、如何避免）和性能收益评估。
 
-**TVM / XLA（概述）**介绍两者的定位差异：TVM 面向跨硬件编译优化，XLA 面向计算图整体优化，以及它们与 Triton、torch.compile 的关系。
+**TVM / XLA（概述\）**介绍两者的定位差异：TVM 面向跨硬件编译优化，XLA 面向计算图整体优化，以及它们与 Triton、torch.compile 的关系。
